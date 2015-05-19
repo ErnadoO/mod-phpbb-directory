@@ -1,0 +1,795 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml-stylesheet type="text/xsl" href="modx.prosilver.en.xsl"?>
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://www.phpbb.com/mods/xml/modx-1.2.6.xsd">
+	<header>
+		<license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
+
+		<title lang="en">phpBB Directory</title>
+		<title lang="fr">phpBB Annuaire</title>
+		<title lang="de">phpBB Directory</title>
+		<title lang="it">phpBB Directory</title>
+
+		<description lang="en"><![CDATA[That MOD add a links directory at your phpBB forum.
+
+For each website:
+	Comments
+    Votes
+    Banners
+    Click counter
+    Country flags
+    Automatics thumbnails
+    Google PageRank calcul
+    Back link (with an powerful sytem of automatical periodic verification with notify and auto delete)
+    RSS feed
+
+General features:
+    Category and sub-category system
+    Suscribe to a category to be notify when a new website is added
+    block "Last links added"
+    Search system
+    Approval before publication
+    And many others options in acp!
+
+The permissions are fully customizable : you can choose the groups, which can add/edit/delete a website, comment, search, etc...
+
+Languages:
+    English
+    French
+    German
+	Italian
+	Serbian (Latin script)]]></description>
+		<description lang="fr"><![CDATA[Ce MOD ajoute un annuaire de lien à votre forum phpBB.
+
+Pour chaque site web:
+	Commentaires
+	Votes
+	Bannières
+	Compteur de clics
+	Drapeau de pays
+	Miniature automatique
+	Calcul du PageRank
+	Lien retour
+	Flux RSS
+
+Fonctionnalitées générales:
+    Système de catégories et sous catégories
+    Abonnement à une catégorie pour être notifié en cas d'ajout d'un nouveau site web dans une catégorie
+	Block "Derniers sites ajoutés"
+    Système de recherche
+	Approbation avant publication (paramétrable par catégorie)
+	Pleins d'autres options dans l'acp!
+
+Les permissions sont configurable, pour choisir quel groupe peut ajouter/modifier/supprimer un lien/commentaire, qui peut effectuer une recherche, etc.
+
+Langues:
+	Anglais
+	Français
+	Allemand
+	Italien
+	Serbe]]></description>
+		<description lang="de">Ein einfaches Linkverzeichniss für Dein Forum</description>
+
+		<author-notes lang="en">php 4.4.0 or later needed
+								Thank's to Théonaute for v0.0.1 debug.
+								Thank's to Genova (http://www.fire-soft-board.com/) author of the directory mod for phpBB2, without whom this release would not exist</author-notes>
+		<author-notes lang="fr">Nécéssite php 4.4.0 minimum
+								Merci à Théonaute pour le débugage de la version 0.0.1.
+								Merci également à Genova (http://www.fire-soft-board.com/) auteur du mod annuaire pour phpBB2, sans qui cette version phpBB3 n'existerait pas</author-notes>
+         <author-notes lang="de">Vielen dank an Théonaute für das Debuging der Version 0.0.1.
+								Gleichfalls vielen Dank an Genova (http://www.fire-soft-board.com/) Autor des Mod "Linkverzeichniss" für phpBB2, ohne dessen Version diese für phpBB3 nicht existieren würde</author-notes>
+		
+		<author-group>
+			<author>
+				<realname>Erwan NADER</realname>
+				<username>ErnadoO</username>
+				<homepage>http://www.phpbb-services.com</homepage>
+			</author>
+
+		</author-group>
+
+		<mod-version>2.0.6</mod-version>
+
+		<installation>
+			<level>easy</level>
+			<time>180</time>
+			<target-version>3.0.12</target-version>
+		</installation>
+
+		<history>
+			<entry>
+				<date>2008-10-29</date>
+				<rev-version>0.0.1</rev-version>
+				<changelog lang="en">
+					<change>First release for beta test</change>
+				</changelog>
+				<changelog lang="fr">
+					<change>Première version pour les bêta testeurs</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2008-11-29</date>
+				<rev-version>0.0.2</rev-version>
+				<changelog lang="en">
+					<change>First public release</change>
+				</changelog>
+				<changelog lang="fr">
+					<change>Première version publique</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2009-03-17</date>
+				<rev-version>0.1.0</rev-version>
+				<changelog lang="en">
+					<change>Add title tag on the website link</change>
+					<change>Add ability to display the thumbnail of websites (ascreen compatible)</change>
+					<change>Add ability to display the pagerank of websites</change>
+					<change>Add ability to define a maximum number of characters in the comments links</change>
+					<change>Add ability to copy on the server, the banners associated with the sites to speed up loading pages</change>
+					<change>Add pagination in comments</change>
+					<change>Add visual confirmation (enabled/disabled) of phpBB3 for guests</change>
+					<change>Add ability to search in titles or descriptions links</change>
+					<change>Add compatibility with MOD Version Check of Handyman`</change>
+					<change>Add compatibility with MySQL &lt; 4.1.3</change>
+					<change>Add notification via Jabber to members who subscribe a categorie</change>
+					<change>Add two forgotten language keys</change>
+					<change>Adding a control over url submited</change>
+					<change>Adding a directory icon in the navbar</change>
+					<change>Adding a link to the top in the comment popup</change>
+					<change>Add a check on the url of the banner</change>
+					<change>Fix a bug in the cells of the categories</change>
+					<change>Fix a bug where there is only one category in the directory</change>
+					<change>Fix a bug when deleting a comment</change>
+					<change>Fix bug allowing member wgo have submit permissions, to edit any link</change>
+					<change>Fix a bug when dragging a link from one category to another (wrong number of links, next to the names of categories)</change>
+					<change>Fix a bug prevents the sending of mail notification of new additions in a particular case</change>
+					<change>Fix bug displaying sub-sub categories on the index of the directory</change>
+					<change>Fix function name in functions_annuaire.php</change>
+					<change>Fix wrong label in annuaire_add_site.html</change>
+					<change>Fix a residue code in phpBB2 functions_annuaire.php</change>
+					<change>Fix language key</change>
+					<change>Fix some field types in acp_annuaire.php</change>
+					<change>Fix sql field types</change>
+					<change>Fix del() methode for a mixed use (moving trigger_error() to annuaire.php)</change>
+					<change>Fix spell in the acp</change>
+					<change>Fix admin log entries during a validation/Remove link</change>
+					<change>Fix email text if approved/denie of a link</change>
+					<change>Fix visual correction in acp_annuaire.php</change>
+					<change>Moving of the creating instance of the class comm</change>
+					<change>Suppress confirmation to delete a message (instant redirection to comments)</change>
+					<change>Unlinking "poll" link for guests, which redirects to the login page.</change>
+					<change>The site links are now hard</change>
+					<change>Flags are now displayed in alphabetical order</change>
+					<change>Query Optimization</change>
+					<change>Recoding of full process of installation/uninstallation/update</change>
+					<change>Recoding of page display of categories to speed several seconds categories with a lot of links (test performed with 200 000 links)</change>
+				</changelog>
+				<changelog lang="fr">
+					<change>Ajout de la balise title sur le lien menant vers un site proposé</change>
+					<change>Ajout de la possibilité d'afficher la miniature des sites (compatible AscreeN)</change>
+					<change>Ajout de la possibilité d'afficher le pagerank des sites</change>
+					<change>Ajout de la possibilité de définir un nombre maxi de caractères dans les commentaires de liens</change>
+					<change>Ajout de la possibilité de copier sur le serveur, les bannières associées aux sites, afin d'accélérer le chargement des pages</change>
+					<change>Ajout de la pagination dans les commentaires</change>
+					<change>Ajout de la confirmation visuelle (activable/désactivable) de phpBB3 pour les invités</change>
+					<change>Ajout de la possibilité d'effectuer une recherche dans les titres ou dans les descriptions de lien</change>
+					<change>Ajout de la compatibilité avec le MOD Version check de Handyman`</change>
+					<change>Ajout de la compatibilité avec MySQL &lt; 4.1.3</change>
+					<change>Ajout de la notification via jabber pour les membres surveillants des catégories</change>
+					<change>Ajout de deux clées de langues oubliées</change>
+					<change>Ajout d'un contrôle des url soumises</change>
+					<change>Ajout d'un icone annuaire dans la navbar</change>
+					<change>Ajout d'un lien vers le haut de page, dans la fenêtre commentaire</change>
+					<change>Ajout d'une vérification sur l'url de la bannière</change>
+					<change>Correction d'un bug d'affichage dans les cellules des catégories</change>
+					<change>Correction d'un bug d'affichage lorsqu'il n'existe qu'une seule catégorie dans l'annuaire</change>
+					<change>Correction d'un bug lors de la suppression d'un commentaire</change>
+					<change>Correction d'un bug permettant aux personnes ayants les permissions de poster un lien, d'éditer n'importe quel lien</change>
+					<change>Correction d'un bug lors du déplacement d'un lien d'une catégorie à l'autre (nombre de liens éronnés, à coté des noms de catégories)</change>
+					<change>Correction d'un bug empechant l'envoie du mail de notification de nouvel ajout dans un cas particulier</change>
+					<change>Correction d'un bug affichant les sous-sous catégories sur l'index de l'annuaire</change>
+					<change>Correction d'un nom de fonction dans functions_annuaire.php</change>
+					<change>Correction d'un label éronné dans annuaire_add_site.html</change>
+					<change>Correction d'un résidu de code phpBB2 dans functions_annuaire.php</change>
+					<change>Correction d'une clée de langue</change>
+					<change>Correction de certains types de champ dans acp_annuaire.php</change>
+					<change>Correction de cetains types de champ sql</change>
+					<change>Correction de la méthode del() pour une utilisation polyvalente (déplacement de trigger_error() vers annuaire.php)</change>
+					<change>Correction orthographique dans l'acp</change>
+					<change>Correction des entrées du journal d'administration lors d'une validation/suppression de lien</change>
+					<change>Correction du texte reçu par mail en cas d'approbation/suppression d'un lien proposé</change>
+					<change>Correction visuel dans acp_annuaire.php</change>
+					<change>Déplacement de la création d'instance de la classe comm</change>
+					<change>Suppression de la confirmation de suppression d'un message (redirection instantanée vers les commentaires)</change>
+					<change>Suppression du lien "voter" pour les invités, qui redirigeait vers la page de connexion.</change>
+					<change>Les liens de site sont désormais en dur</change>
+					<change>Les drapeaux sont désormais affichés par ordre alphabétique</change>
+					<change>Optimisation des requêtes</change>
+					<change>Recodage complet du processus d'installation/désinstallation/mise à jour</change>
+					<change>Recodage de la page de visualisation des catégories, afin d'accélérer de plusieurs secondes les catégories ayant énormément de liens (test réalisé avec 200 000 liens)</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2009-03-22</date>
+				<rev-version>0.1.1</rev-version>
+				<changelog lang="en">
+					<change>Adding a control on AscreeN image detection to verify that it really exists and it is not a custom error page</change>
+					<change>Adding a drop down menu to select the thumbnail service to use + option to make this change retroactive</change>
+					<change>Visual change in annuaire_view_cat_html.html</change>
+					<change>Fix pagerank displayed for non-determination of it</change>
+					<change>Fix a forgotten prevent the displacement of a site from one category to another</change>
+					<change>Fix of checkurl() for no longer verify server, but the exactly url submited</change>
+					<change>Fix of thumb_process() to best manage wacky urls</change>
+					<change>Fix language key</change>
+					<change>Fix notice in case of attempted submission without specifying a category</change>
+					<change>Fix chmod applied to uploaded banners</change>
+					<change>Removing of the add link on index directory</change>
+				</changelog>
+				<changelog lang="fr">
+					<change>Ajout d'un contrôle en cas de detection d'une image ascreen, pour vérifier qu'elle existe réellement et qu'il ne s'agit pas d'une page d'erreur perso</change>
+					<change>Ajout d'un menu déroulant pour choisir le service de miniature à utiliser + option pour rendre ce changement rétroactif</change>
+					<change>Changement visuel dans annuaire_view_cat_html.html</change>
+					<change>Correction du pagerank affiché en cas de non-determination de celui-ci</change>
+					<change>Correction d'un oublie empechant le déplacement d'un site d'une catégorie à l'autre</change>
+					<change>Correction de checkurl() pour vérifier non plus le serveur, mais l'url exacte spécifiée</change>
+					<change>Correction de thumb_process() pour gérer au mieu les url farfelues</change>
+					<change>Correction d'une clée de langue</change>
+					<change>Correction d'une notice en cas de tentative de soumission sans spécifier de catégorie</change>
+					<change>Correction du chmod appliqué aux bannières uploadées</change>
+					<change>Suppression du lien d'ajout de site situé sur l'index de l'annuaire</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2009-06-04</date>
+				<rev-version>0.1.2</rev-version>
+				<changelog lang="en">
+					<change>Add Deutsh language</change>
+					<change>Fix notice if the website's banner don't exists anymore</change>
+					<change>Fix notice in acp if a website was submited by anonymous</change>
+					<change>Fix an installation query</change>
+					<change>Fix typo</change>
+					<change>Fix phpbb 3.0.5</change>
+					<change>New navbar icon</change>
+				</changelog>
+				<changelog lang="fr">
+					<change>Ajout de la traduction allemande</change>
+					<change>Correction d'une notice si la bannière lié au site n'existe plus</change>
+					<change>Correction d'une notice dans l'acp si un lien a été proposé par un invité</change>
+					<change>Correction d'une requête d'installation</change>
+					<change>Correction de fautes d'orthographe</change>
+					<change>Correction phpbb 3.0.5</change>
+					<change>Nouvel icône de navbar</change>
+				</changelog>
+			</entry>
+
+			<entry>
+				<date>2009-12-08</date>
+				<rev-version>0.2.0</rev-version>
+				<changelog lang="en">
+					<change>Add missing language keys when submitting a site</change>
+					<change>Add php5.3.0 compatibility</change>
+					<change>Add visual confirmation for guests to post a comment</change>
+					<change>Add methods documentation  in functions_annuaire.php</change>
+					<change>Add ability to enable, by category, admin validation</change>
+					<change>Add ability to specify an RSS feed at a website submission</change>
+					<change>Add support for all types of database managed by phpBB3 (thank you dcz), the mod can now be installed on all types of database supported by phpBB</change>
+					<change>Add checking allow_url_fopen during installation</change>
+					<change>Add check writing privileges in the images/annuaire/banners during installation</change>
+					<change>Add alt and title attributes on the thumbnails</change>
+					<change>Add ranking of weblinks by PageRank</change>
+					<change>Add system check of the validity of reciprocal links provided when adding with sending mail or direct deletion</change>
+					<change>Add a block "last links added" down the main page</change>
+					<change>Add an extra check when submitting with check_form_key()</change>
+					<change>Add a new php class for calculating the pagerank, the former having become ineffective in some hosters</change>
+					<change>Add a new function to remove the trailing slash of urls submitted when no path follows</change>
+					<change>Add option to count the number of sites subcategory in order to take into account in the link count of the parent category</change>
+					<change>Add an option to make mandatory the intelligence of a URL where a link back</change>
+					<change>Add a global permission to allow or not voting</change>
+					<change>Add a redirect to the root directory when attempting to access a nonexistent category</change>
+					<change>Add a redirect to the root directory if undefined category in the url</change>
+					<change>Add a variable $directory_root_path to simplify installation of the mod directory outside of phpBB</change>
+					<change>Add a new service from thumbnails: easy-thumb.net</change>
+					<change>Add a new module in the acp:
+					- Add statistics directory
+					- Add a button to reset the poll
+					- Add a button to reset comments
+					- Add a button to reset the clicks counter
+					- Add a button to delete orphaned banners from server</change>
+					<change>Fix of display_pagerank() which systematically recalculated the pagerank of a link if it was 0</change>
+					<change>Fix of display_vote() function</change>
+					<change>Fix encoding of email files</change>
+					<change>Fix of sync_annu_cat() function which does not synchronize the number of comments of a link</change>
+					<change>Fix of method to redirect external links (redirect () instead of header ()) for enhanced security</change>
+					<change>Fix of del() method to can work on array of links to delete</change>
+					<change>Fix syntax of some queries to make them compatible with all supported SGDBD</change>
+					<change>Fix section of code that checks the required fields when submitting</change>
+					<change>Fix sorting parameters verification in the declaration of $u_sort_param</change>
+					<change>Fix some sql fields (switching to UNSIGNED and VCHAR(255))</change>
+					<change>Fix criteria enabling/disabling BBCode/Smilies in the posting comments form</change>
+					<change>Fix various mistakes in install_install.php</change>
+					<change>Fix packaging and MODX 1.2.3</change>
+					<change>Fix a bug preventing the proper insertion of the IP of a guest posting a comment</change>
+					<change>Fix a bug preventing the receipt by the admins, and only migrated from phpBB2 forums, mail notification of a new link</change>
+					<change>Fix a bug preventing deletion of votes and comments associated with a link removed</change>
+					<change>Fix a bug preventing deletion of comments associated with a deleted category links via the acp</change>
+					<change>Fix a bug with a date of submission vacuum (in anticipation of a migration of the directory phpBB2> phpBB3)</change>
+					<change>Fix a wrong label in acp_forums.html</change>
+					<change>Fix a misplaced tag in annuaire_search_site.html</change>
+					<change>Fix typo in annuaire_add_site.html</change>
+					<change>Fix typo in annuaire_comment_body.html</change>
+					<change>Moving e-mail subjects from the language file to the template email</change>
+					<change>Mooving assigning the variable $ title in annuaire.php to reduce the necessary changes to rewrite phpbb_seo patch</change>
+					<change>Remove annu_visual_confirm function() become useless after the new CAPTCHA system of phpbb 3.0.6</change>
+					<change>Remove the phpbb_annuaire_crons table</change>
+					<change>Remove the unasigned template language template {ANNU_USER_PROP_TIME}</change>
+					<change>Deleting a test before using generate_pagination() (the function doing the same test)</change>
+					<change>make_cat_select function() becomes a class method</change>
+					<change>The installation process is now multilanguage</change>
+				</changelog>
+				<changelog lang="fr">
+					<change>Ajout de clées de langue oubliées lors de soumission d'un site (les clées étants absantes, des clées de langues non éxplicites étaient utilisées)</change>
+					<change>Ajout de la compatibilité php 5.3.0</change>
+					<change>Ajout de la confirmation visuelle pour les invités pour poster un commentaire</change>
+					<change>Ajout de la documentation des méthodes dans functions_annuaire.php</change>
+					<change>Ajout de la possibilité de choisir, par catégorie, la validation par admin ou non</change>
+					<change>Ajout de la possibilité de spécifier un flux RSS d'un site lors de sa soumission</change>
+					<change>Ajout de la prise en charge de tous les types de base de données gérées par phpBB3 (merci dcz); le mod peut désormais s'installer sur tous les types de base de données supportées par phpBB</change>
+					<change>Ajout de la vérification de la directive allow_url_fopen lors de l'installation</change>
+					<change>Ajout de la vérification du droit d'écriture dans images/annuaire/banners lors de l'installation</change>
+					<change>Ajout des attributs alt et title sur les miniatures</change>
+					<change>Ajout du classement des liens par PageRank</change>
+					<change>Ajout du système de vérification périodique de la validité des liens réciproque fournis lors de l'ajout, avec envoi de mail ou suppression directe</change>
+					<change>Ajout d'un bloc "dernier liens ajoutés" (activable/desactivable) en bas de la page principale</change>
+					<change>Ajout d'un contrôle supplémentaire lors de la soumission, avec check_form_key()</change>
+					<change>Ajout d'une nouvelle classe php pour le calcule du pagerank, l'ancienne étant devenue inopérante chez certains hebergeurs</change>
+					<change>Ajout d'une nouvelle fonction pour supprimer le slash final des urls soumises, lorsque aucun chemin ne suit</change>
+					<change>Ajout d'une option permettant de comptabiliser le nombre sites des sous-catégorie, afin d'en tenir compte dans le compteur de lien de la catégorie parente</change>
+					<change>Ajout d'une option permettant de rendre obligatoire le renseignement d'une url où figure un lien retour</change>
+					<change>Ajout d'une permission globale pour autoriser ou non les votes</change>
+					<change>Ajout d'une redirection vers la racine de l'annuaire en cas de tentative d'accès à une catégorie inexistante</change>
+					<change>Ajout d'une redirection vers la racine de l'annuaire en cas de catégorie non définie dans l'url</change>
+					<change>Ajout d'une variable $directory_root_path pour simplifier les installations du mod en dehors du répertoire de phpBB</change>
+					<change>Ajout d'un nouveau service de miniature: easy-thumb.net</change>
+					<change>Ajout d'un nouveau module dans l'acp:
+						- Ajout de statistiques sur l'annuaire
+						- Ajout d'un bouton pour réinitialiser les votes
+						- Ajout d'un bouton pour réinitialiser les commentaires
+						- Ajout d'un bouton pour réinitialiser les compteurs de clicks
+						- Ajout d'un bouton pour supprimer les bannières orphelines du serveur</change>
+					<change>Correction de display_pagerank() qui recalculait systhématiquement le pagerank d'un lien si celui ci était égal à 0</change>
+					<change>Correction de display_vote()</change>
+					<change>Correction de l'encodage des fichiers template d'email</change>
+					<change>Correction de la fonction sync_annu_cat() qui ne synchronisait pas le nombre de commentaire d'un lien</change>
+					<change>Correction de la méthode de redirection vers les liens externes (redirect() au lieu de header()) pour une meilleure sécurité</change>
+					<change>Correction de la méthode del() afin de lui permettre de pouvoir traiter des tableau de liens à supprimer</change>
+					<change>Correction de la syntaxe de certaines requêtes afin de les rendre compatible avec tous les SGDBD supportés</change>
+					<change>Correction de la section de code verifiant les champs obligatoires lors de la soumission</change>
+					<change>Correction de la vérification des paramètres de tri lors de la déclaration de $u_sort_param</change>
+					<change>Correction de certains champs sql (passage en UNSIGNED et VCHAR(255))</change>
+					<change>Correction des critères d'activation/désactivation des bbcodes/smilies dans le formulaire de posting des commentaires</change>
+					<change>Correction diverses dans install_install.php</change>
+					<change>Correction du packaging et MODX 1.2.3</change>
+					<change>Correction d'un bug empêchant l'insertion correcte de l'ip d'un invité postant un commentaire</change>
+					<change>Correction d'un bug empêchant la reception par les admins, et uniquement pour les forums migré depuis phpBB2, du mail de notification d'un nouveau lien</change>
+					<change>Correction d'un bug empêchant la suppression des votes et des commentaires associés à un lien supprimé</change>
+					<change>Correction d'un bug empêchant la suppression des commentaires associés aux liens d'une catégorie supprimée via l'acp</change>
+					<change>Correction d'un bug affichant une date de soumission vide (en prévision d'une migration de l'annuaire phpBB2 >> phpBB3)</change>
+					<change>Correction d'un label erroné dans acp_forums.html</change>
+					<change>Correction d'une balise mal placée dans annuaire_search_site</change>
+					<change>Correction typographique dans annuaire_add_site.html</change>
+					<change>Correction typographique dans annuaire_comment_body.html</change>
+					<change>Déplacement des sujets des e-mail depuis le fichier de langue vers le template d'email</change>
+					<change>Déplacement de l'assignation de la variable $title dans annuaire.php, afin de réduire les modifications nécéssaires au patch de réécriture phpbb_seo</change>
+					<change>Suppression de la fonction annu_visual_confirm() devenue inutile suite au nouveau système de CAPTCHA de phpbb 3.0.6</change>
+					<change>Suppression de la table phpbb_annuaire_crons</change>
+					<change>Suppression de la variable template de langue indéfinie {ANNU_USER_PROP_TIME}</change>
+					<change>Suppression d'un test avant l'utilisation de generate_pagination() (la fonction faisant le même test)</change>
+					<change>La fonction make_cat_select() devient une méthode de classe</change>
+					<change>Le processus d'installation est désormais multilangue</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2010-07-01</date>
+				<rev-version>0.2.1</rev-version>
+				<changelog lang="en">
+					<change>Add a right-bottom button of each link's description for return to top page</change>
+					<change>Add a link on names of categories of "Last websites added" block</change>
+					<change>Add a dropdown menu in acp validation page, allows to place website in another categorie than selected during submitting</change>
+					<change>Add a JumpBox footer of each category to more easily navigate between them</change>
+					<change>Add 10 servers for the calcul PageRank to reduce the risk of blacklisting by Google</change>
+					<change>Add of 46 news flags</change>
+					<change>Add english language</change>
+					<change>Add "View more smilies" link in comment page</change>
+					<change>Fix bug wich truncate, in some cases, the last url's caracter</change>
+					<change>Fix a bug when deleting a category that contains one or more sub-category</change>
+					<change>Fix a bug causing the systematic insertion of smileys at the end of text when writing a comment (IE only)</change>
+					<change>Fix sql query (and the unsent mail) when submitting a site by a member while the validation is enabled by admin</change>
+					<change>Fix function banner_remote() for better verification of banners related (type and dimensions according to the settings acp)</change>
+					<change>Fix function banner_process() to don't remove the link's banner if uplaod of the new banner has failed</change>
+					<change>Fix rss icon displaying method</change>
+					<change>Fix flags displaying method</change>
+					<change>Fix image names flags (use of ISO 3166-1 alpha-2 codes) to facilitate the translation of the relevant countries</change>
+					<change>Fix "Last websites added" block, The width for each site displayed is now fixed (the width of the page is no longer divided by the number of websites displayed, but by the number of sites to display per line that is configured in acp)</change>
+					<change>Fix bug to the directory /tmp some hosters, required for calculating the pagerank</change>
+					<change>Fix bug preventing, to view the banner when it is copied to the server and its name is capitalized</change>
+					<change>Fix installation file</change>
+					<change>Fix automatic verifiaction reciprocal links system: No date verification was stored, so no verification was made</change>
+					<change>Fix some language keys</change>
+					<change>Various fixes for validating XHTML 1.0 Strict</change>
+					<change>Optimization of calculates/delete banners orphan function</change>
+					<change>Optimization of countries dropdown menu generation function</change>
+					<change>Optimization of "Last websites added" block function</change>
+					<change>Optimization of redirections in case of nonexistent category (send a HTTP header 404 or 410)</change>
+					<change>MODX 1.2.5</change>
+				</changelog>
+				<changelog lang="fr">
+					<change>Ajout d'un bouton en bas à droite de chaque site pour remonter en haut de la page (rev #32)</change>
+					<change>Ajout d'un lien sur les noms des catégories dans le block "Derniers sites ajoutés" (rev #26)</change>
+					<change>Ajout d'un menu déroulant sur la page de validation de site, permettant de placer le site dans une catégorie différente de celle proposée par l'utilisateur (rev #19)</change>
+					<change>Ajout d'une jumpbox en bas de page de chaque catégorie afin de naviguer plus facilement entre elles (rev #34)</change>
+					<change>Ajout de 10 serveurs pour le calcul du PageRank afin de réduire les risques de blacklistage par google (rev #49)</change>
+					<change>Ajout de 46 drapeaux (rev #44)</change>
+					<change>Ajout de la langue Anglaise (rev #61)</change>
+					<change>Ajout du lien "Voir plus de smileys" sur la page de rédaction d'un commentaire (rev #37)</change>
+					<change>Correction d'un bug emputant, dans certains cas, le dernier caractère de l'url soumise (rev #57)</change>
+					<change>Correction d'un bug lors de la suppression d'une catégorie contenant un ou plusieurs sous-catégorie (rev #17)</change>
+					<change>Correction d'un bug provocant l'insertion systématique des smileys en fin de texte lors de la rédaction d'un commentaire (sous iE uniquement) (rev #38)</change>
+					<change>Correction de l'erreur sql (et du mail non envoyé) en cas de soumission d'un site par un membre alors que la validation par admin est activée (rev #14)</change>
+					<change>Correction de la fonction banner_remote() pour une meilleure vérification des bannières liées (type et dimensions conformes aux réglages acp) (rev #30)</change>
+					<change>Correction de la fonction banner_process() afin de ne plus supprimer la bannière liée à un lien si l'uplaod de la nouvelle bannière a échouée (rev #31)</change>
+					<change>Correction de la méthode d'affichage de l'icone rss (rev #39)</change>
+					<change>Correction de la méthode d'affichage des drapeaux (rev #50)</change>
+					<change>Correction des noms des images drapeaux (utilisation de la norme ISO 3166-1 alpha-2 codes) afin de faciliter la traduction des pays correspondants (rev #44)</change>
+					<change>Correction du block "Derniers sites ajoutés", la largeur pour chaque site affiché est désormais fixe (la largeur de page n'est plus divisée par le nombre de site affichés, mais par le nombre de site à afficher par ligne qui est configuré dans l'acp) (rev #27)</change>
+					<change>Correction du bug d'accès au répertoire /tmp de certains hebergeurs, requis pour le calcul du pagerank (rev #28)</change>
+					<change>Correction du bug empêchant, chez certains hébergeurs, d'afficher la bannière dans le cas où celle-ci est copiée sur le serveur et que son nom est en majuscule (rev #40)</change>
+					<change>Correction du fichier d'installation (rev #29, #42)</change>
+					<change>Correction du sytème de vérifiaction automatique des liens réciproques: Aucune date de vérification n'était stockée, donc aucune vérification n'était faite (rev #22)</change>
+					<change>Correction et ajout de plusieurs clées de langue (rev #12, #13, #16, #47)</change>
+					<change>Corrections diverses pour la validation XHTML 1.0 Strict (rev #53)</change>
+					<change>Optimisation de la fonction de calcule/suppression des bannières orphelines (rev #43)</change>
+					<change>Optimisation de la fonction de génération du menu déroulant des pays (rev #45)</change>
+					<change>Optimisation de la fonction générant le bloc "Derniers sites ajoutés" (rev #48)</change>
+					<change>Optimisation des redirections en cas de catégorie inexistante (envoie d'un header HTTP 404 ou 410 aux bots) (rev #52)</change>
+					<change>MODX 1.2.5 (rev #23, #24)</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2011-07-27</date>
+				<rev-version>1.0.0</rev-version>
+				<changelog lang="en">
+					<change>Switch tables for xhtml structure in annuaire_view_cat.html</change>
+					<change>Add message when trying to edit a link without having permission</change>
+					<change>Add message when trying to delete a link without having permission</change>
+					<change>Add two global permissions to give the possibility to edit/delete own links</change>
+					<change>Add two global permissions to give the possibility to edit/delete links for others that administrators</change>
+					<change>Add two global permissions to give the possibility to edit/delete comments</change>
+					<change>Add thumbnail of the site in search results</change>
+					<change>Add bbcodes buttons in the form of posting a new website</change>
+					<change>Add personals bbcodes buttons in the form of posting comments</change>
+					<change>Add file "no_flag.png" missing (red cross syndrome with IE)</change>
+					<change>Fix condition in acp_annauire.php causing an error message when editing a category after a convert from phpbb2 directory</change>
+					<change>Fix uninstall queries</change>
+					<change>Fix website links displayed in a search result</change>
+					<change>Fix $forum_id parameter sent to generate_smilies() in annuaire_comment.php</change>
+					<change>Fix phpBB2 directory convert script to match with the new names of flags since version 0.2.0</change>
+					<change>Fix updated script to match with the new names flags since version 0.2.0</change>
+					<change>Various fixes in the English language files</change>
+					<change>Update of convert script from phpBB2 directory</change>
+					<change>Replacing file_get_contents() by a while loop and fgets() for faster detection of reciprocal link</change>
+					<change>Replacing $_SERVER['HTTP_HOST'] by $config['server_name']</change>
+					<change>Replacing is_writable() by phpbb_is_writable() (is_writable () can not function properly under Windows)</change>
+					<change>Replacing header() by send_status_line () added by phpBB 3.0.8 which manages more cases</change>
+					<change>Replacing text links "edit" and "delete" by images (as in viewtopic)</change>
+					<change>The posters's IP address in comments are not visible to admins, but are now visible to any member who has m_info permissions</change>
+					<change>Swaps error codes 404 with 410, if a categorie is not specified/no longer exists</change>
+				</changelog>
+				<changelog lang="fr">
+					<change>Abandon des tableaux pour une scructure 100% xhtml dans annuaire_view_cat.html</change>
+					<change>Ajout d'un message en cas de tentative d'edition d'un lien sans en avoir l'autorisation</change>
+					<change>Ajout d'un message en cas de tentative de suppression d'un lien sans en avoir l'autorisation</change>
+					<change>Ajout de basename pour la supppression de la bannière</change>
+					<change>Ajout de deux permissions globales afin de donner la possibilité d'éditer/supprimer ses propres liens</change>
+					<change>Ajout de deux permissions globales afin de donner la possibilité d'éditer/supprimer des liens pour des membres autre qu'administrateurs</change>
+					<change>Ajout de deux permissions globales afin de donner la possibilité d'éditer/supprimer des commentaires pour des membres autre qu'administrateurs</change>
+					<change>Ajout de la miniature du site dans les résultats de recherche</change>
+					<change>Ajout des boutons bbcode dans le formulaire de postage d'un nouveau site</change>
+					<change>Ajout des boutons bbcodes persos dans le formulaire de postage des commentaires</change>
+					<change>Ajout du fichier "no_flag.png" manquant (syndrome de la croix rouge sous iE)</change>
+					<change>Correction d'un bug permettant à n'importe qui d'editer/supprimer un lien</change>
+					<change>Correction d'une condition dans acp_annauire.php provoquant un message d'erreur en cas d'edition d'une categorie apres une conversion depuis l'annuaire phpBB2</change>
+					<change>Correction des requêtes de désinstallation</change>
+					<change>Correction des liens des sites affichés lors d'une recherche</change>
+					<change>Correction du paramètre $forum_id envoyé à generate_smilies() dans annuaire_comment.php</change>
+					<change>Correction du script de migration de l'annuaire phpBB2 afin de prendre en compte les nouveaux noms de drapeaux depuis la version 0.2.0</change>
+					<change>Correction du script de mise à jour afin de prendre en compte les nouveaux noms de drapeaux depuis la version 0.2.0</change>
+					<change>Corrections diverses dans les fichiers de langue anglais</change>
+					<change>Mise à jour du script de migration depuis l'annuaire phpBB2</change>
+					<change>Optimisation du système de recherche</change>
+					<change>Remplacement de file_get_contents() par une boucle while et fgets() pour une detection plus rapide du lien réciproque</change>
+					<change>Remplacement de include_once par class_exists dans cron.php</change>
+					<change>Remplacement de $_SERVER['HTTP_HOST'] par $config['server_name']</change>
+					<change>Remplacement de is_writable() par phpbb_is_writable() (is_writable() pouvant ne pas fonctionner correctement sous windows)</change>
+					<change>Remplacement de header() par send_status_line() ajoutée par phpBB 3.0.8 qui gère plus de cas de figure</change>
+					<change>Remplacement des liens texte "editer" et "supprimer" par des images (comme dans viewtopic)</change>
+					<change>L'adresse IP des posteurs de commentaires ne sont plus visible que par les admins, mais sont désormais visible par tout membre ayant les permissions m_info</change>
+					<change>Intervertion des codes d'erreur 404 avec 410, dans le cas où une catégorie n'est pas spécifiée/n'existe plus</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2011-09-27</date>
+				<rev-version>2.0.0</rev-version>
+				<changelog lang="en">
+					<change>Changing a key language ambiguous</change>
+					<change>Fix display bug with forum fixed-width</change>
+					<change>Using of sql_build_array() in annuaire.php</change>
+					<change>Several minor changes</change>
+				</changelog>
+				<changelog lang="fr">
+					<change>Changement d'une clé de langue ambigüe</change>
+					<change>Correction du bug d'affichage sur les forums à largeur fixe</change>
+					<change>Utilisation de sql_build_array() dans annuaire.php</change>
+					<change>Plusieurs changements mineurs</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2012-06-03</date>
+				<rev-version>2.0.1</rev-version>
+				<changelog lang="en">
+					<change>Typo mistake causing a 404 error</change>
+				</changelog>
+				<changelog lang="fr">
+					<change>Faute de frappe provoquant une erreur 404</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2012-07-15</date>
+				<rev-version>2.0.2</rev-version>
+				<changelog lang="en">
+					<change>Remove somes addslashes()</change>
+					<change>Remove thumbshot.fr service</change>
+					<change>New PageRank calculator</change>
+				</changelog>
+				<changelog lang="fr">
+					<change>Suppression de certains addslashes()</change>
+					<change>Suppression du service thumbshot.fr</change>
+					<change>Nouveau script de calcul du PageRank</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2013-10-26</date>
+				<rev-version>2.0.3</rev-version>
+				<changelog lang="en">
+					<change>Fixed wrong function name</change>
+					<change>Fixed php notice in install process</change>
+					<change>New categories synchronisation function</change>
+					<change>Use of the Unicode apostrophe in language files</change>
+				</changelog>
+				<changelog lang="fr">
+					<change>Correction d'un nom de fonction erroné</change>
+					<change>Correction d'une notice php lors de l'installation</change>
+					<change>Nouvelles fonctions de synchronisation des catégories</change>
+					<change>Utilisation de l'apostrophe Unicode dans les fichiers de langue</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2013-11-30</date>
+				<rev-version>2.0.4</rev-version>
+				<changelog lang="en">
+					<change>Change class name cron</change>
+					<change>Fixed a bug when pagerank algorythm don't return a number</change>
+					<change>Fixed validate_link_back() function which used invalid language key</change>
+					<change>Fixed several append_sid() call misused</change>
+					<change>Fixed several comment still in French</change>
+					<change>Fixed a PHP error in ACP when the last version retrieving fails</change>
+					<change>New buttons for de/en/fr languages</change>
+				</changelog>
+				<changelog lang="fr">
+					<change>Changement de nom de la classe cron</change>
+					<change>Correction d'un bug SQL si le pagerank retourné par l'algorithme n'est pas un nombre</change>
+					<change>Correction de la fonction validate_link_back() retournant une notice et des clés de langue invalides</change>
+					<change>Correction de plusieurs appels append_sid() mal utilisés</change>
+					<change>Correction de plusieurs commentaires toujours en Français</change>
+					<change>Correction du message d'erreur dans l'acp lors de l'échec de la récupération de la dernière version du MOD</change>
+					<change>Nouveaux boutons de/en/fr</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2014-01-04</date>
+				<rev-version>2.0.5</rev-version>
+				<changelog lang="en">
+					<change>Add Italian language</change>
+					<change>Fixed a bbcode bug in link description</change>
+					<change>Fixed an invalid message after canceled a confirm box</change>
+				</changelog>
+				<changelog lang="fr">
+					<change>Ajout de la langue Italienne</change>
+					<change>Correction des bbcodes non parsés dans le descriptif d'un site (bug apparu lors de la dernière version)</change>
+					<change>Correction du message "site supprimé avec succès" après avoir annulé la suppression</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2014-04-12</date>
+				<rev-version>2.0.6</rev-version>
+				<changelog lang="en">
+					<change>Fixed a php notice when banner's size control is disabled</change>
+					<change>Fixed empty description in notification e-mail</change>
+					<change>Fixed wrong language key</change>
+					<change>Hiding the note, the number of votes, the vote button and the number of comments when votes and comments are disabled in the administration</change>
+					<change>Used of append_sid() for onClick links</change>
+					<change>Checking permissions when displaying add form</change>
+				</changelog>
+				<changelog lang="fr">
+					<change>Correction d'une notice php lorsqu'aucunes dimensions maximales de bannière n'est spécifiée</change>
+					<change>Correction de la description vide dans les mails de notification</change>
+					<change>Corrections de clés de langue et template e-mail</change>
+					<change>Masquage de la note, du nombre de votes, du bouton de vote et du nombre de commentaires des sites lorsque votes et commentaires sont désactivés dans l'administration</change>
+					<change>Utilisation de append_sid() pour la génération des liens onClick</change>
+					<change>Vérification des permissions lors de l'affichage du formulaire d'ajout d'un nouveau site</change>
+				</changelog>
+			</entry>
+		</history>
+
+		<link-group>
+			<link type="language" href="./xml/fr.xml" lang="en">French</link>
+			<link type="language" href="./xml/de.xml" lang="en">Deutsch</link>
+			<link type="language" href="./xml/it.xml" lang="en">Italian</link>
+			<link type="language" href="./xml/sr.xml" lang="en">Serbian</link>
+			<link type="language" href="./xml/fr.xml" lang="fr">Français</link>
+			<link type="language" href="./xml/de.xml" lang="fr">Allemand</link>
+			<link type="language" href="./xml/it.xml" lang="fr">Italien</link>
+			<link type="language" href="./xml/sr.xml" lang="fr">Serbe</link>
+			<link type="language" href="./xml/fr.xml" lang="de">Französisch</link>
+			<link type="language" href="./xml/de.xml" lang="de">Deutsch</link>
+			<link type="language" href="./xml/it.xml" lang="de">Italien</link>
+			<link type="language" href="./xml/sr.xml" lang="de">Serbisch</link>
+			
+			<link type="contrib" lang="en" href="contrib/updates/update_1_0_0_to_2_0_0/update.xml">Update v1.0.0 to v2.0.0</link>
+			<link type="contrib" lang="fr" href="contrib/updates/update_1_0_0_to_2_0_0/update.xml">Mise à jour de la version 1.0.0 vers la 2.0.0</link>
+			<link type="contrib" lang="en" href="contrib/updates/update_2_0_0_to_2_0_1/update.xml">Update v2.0.0 to v2.0.1</link>
+			<link type="contrib" lang="fr" href="contrib/updates/update_2_0_0_to_2_0_1/update.xml">Mise à jour de la version 2.0.0 vers la 2.0.1</link>
+			<link type="contrib" lang="en" href="contrib/updates/update_2_0_1_to_2_0_2/update.xml">Update v2.0.1 to v2.0.2</link>
+			<link type="contrib" lang="fr" href="contrib/updates/update_2_0_1_to_2_0_2/update.xml">Mise à jour de la version 2.0.1 vers la 2.0.2</link>
+			<link type="contrib" lang="en" href="contrib/updates/update_2_0_2_to_2_0_3/update.xml">Update v2.0.2 to v2.0.3</link>
+			<link type="contrib" lang="fr" href="contrib/updates/update_2_0_2_to_2_0_3/update.xml">Mise à jour de la version 2.0.2 vers la 2.0.3</link>
+			<link type="contrib" lang="en" href="contrib/updates/update_2_0_3_to_2_0_4/update.xml">Update v2.0.3 to v2.0.4</link>
+			<link type="contrib" lang="fr" href="contrib/updates/update_2_0_3_to_2_0_4/update.xml">Mise à jour de la version 2.0.3 vers la 2.0.4</link>
+			<link type="contrib" lang="en" href="contrib/updates/update_2_0_4_to_2_0_5/update.xml">Update v2.0.4 to v2.0.5</link>
+			<link type="contrib" lang="fr" href="contrib/updates/update_2_0_4_to_2_0_5/update.xml">Mise à jour de la version 2.0.4 vers la 2.0.5</link>			
+			<link type="contrib" lang="en" href="contrib/updates/update_2_0_5_to_2_0_6/update.xml">Update v2.0.5 to v2.0.6</link>
+			<link type="contrib" lang="fr" href="contrib/updates/update_2_0_5_to_2_0_6/update.xml">Mise à jour de la version 2.0.5 vers la 2.0.6</link>	
+			
+			<link type="contrib" lang="en" href="contrib/addons/annuaire_rewrite_v2.0.0/install.xml">URL Rewrite patch for phpbb-seo solution</link>
+			<link type="contrib" lang="fr" href="contrib/addons/annuaire_rewrite_v2.0.0/install.xml">Patch de réécriture d'url pour le mod de réécriture phpbb-seo</link>
+		</link-group>
+	</header>
+
+	<action-group>
+		<copy>
+			<file from="root/directory.php" to="directory.php" />
+			<file from="root/directory_comment.php" to="directory_comment.php" />
+			<file from="root/directory_search.php" to="directory_search.php" />
+			<file from="root/adm/style/acp_dir_cat.html" to="adm/style/acp_dir_cat.html" />
+			<file from="root/adm/style/acp_dir_main.html" to="adm/style/acp_dir_main.html" />
+			<file from="root/adm/style/acp_dir_val.html" to="adm/style/acp_dir_val.html" />
+			<file from="root/adm/style/install_dir.html" to="adm/style/install_dir.html" />
+			<file from="root/images/directory/nothumb.gif" to="images/directory/nothumb.gif" />
+			<file from="root/images/directory/flags/*.*" to="images/directory/flags/*.*" />
+			<file from="root/images/directory/icons/*.*" to="images/directory/icons/*.*" />
+			<file from="root/includes/acp/acp_directory.php" to="includes/acp/acp_directory.php" />
+			<file from="root/includes/acp/info/acp_directory.php" to="includes/acp/info/acp_directory.php" />
+			<file from="root/includes/mods/directory/functions.php" to="includes/mods/directory/functions.php" />
+			<file from="root/install/*.*" to="install/*.*" />
+			<file from="root/language/en/email/mods/directory/error_check.txt" to="language/en/email/mods/directory/error_check.txt" />
+			<file from="root/language/en/email/mods/directory/notification.txt" to="language/en/email/mods/directory/notification.txt" />
+			<file from="root/language/en/email/mods/directory/user_validation.txt" to="language/en/email/mods/directory/user_validation.txt" />
+			<file from="root/language/en/email/mods/directory/validation.txt" to="language/en/email/mods/directory/validation.txt" />
+			<file from="root/language/en/mods/directory.php" to="language/en/mods/directory.php" />
+			<file from="root/language/en/mods/directory_flags.php" to="language/en/mods/directory_flags.php" />
+			<file from="root/language/en/mods/directory_install.php" to="language/en/mods/directory_install.php" />
+			<file from="root/language/en/mods/info_acp_directory.php" to="language/en/mods/info_acp_directory.php" />
+			<file from="root/language/en/mods/permissions_directory.php" to="language/en/mods/permissions_directory.php" />
+			<file from="root/styles/prosilver/imageset/en/button_link_new.gif" to="styles/prosilver/imageset/en/button_link_new.gif" />
+			<file from="root/styles/prosilver/imageset/en/icon_link_new.gif" to="styles/prosilver/imageset/en/icon_link_new.gif" />
+			<file from="root/styles/prosilver/template/mods/directory/add_site.html" to="styles/prosilver/template/mods/directory/add_site.html" />
+			<file from="root/styles/prosilver/template/mods/directory/body.html" to="styles/prosilver/template/mods/directory/body.html" />
+			<file from="root/styles/prosilver/template/mods/directory/catlist.html" to="styles/prosilver/template/mods/directory/catlist.html" />
+			<file from="root/styles/prosilver/template/mods/directory/comment_body.html" to="styles/prosilver/template/mods/directory/comment_body.html" />
+			<file from="root/styles/prosilver/template/mods/directory/footer.html" to="styles/prosilver/template/mods/directory/footer.html" />
+			<file from="root/styles/prosilver/template/mods/directory/recents.html" to="styles/prosilver/template/mods/directory/recents.html" />
+			<file from="root/styles/prosilver/template/mods/directory/search_site.html" to="styles/prosilver/template/mods/directory/search_site.html" />
+			<file from="root/styles/prosilver/template/mods/directory/view_cat.html" to="styles/prosilver/template/mods/directory/view_cat.html" />
+			<file from="root/styles/prosilver/theme/directory.css" to="styles/prosilver/theme/directory.css" />
+			<file from="root/styles/prosilver/theme/images/icon_directory.gif" to="styles/prosilver/theme/images/icon_directory.gif" />
+			<file from="root/umil/*.*" to="umil/*.*" />
+		</copy>
+		<open src="cron.php">
+			<edit>
+				<find><![CDATA[}
+
+// Unloading cache and closing db after having done the dirty work.]]></find>
+				<action type="before-add"><![CDATA[	case 'prune_directory':
+
+		$cat_id = request_var('cat', 0);
+
+		$sql = 'SELECT cat_id, cat_cron_enable, cat_cron_next, cat_cron_freq, cat_cron_nb_check
+			FROM ' . DIR_CAT_TABLE . "
+			WHERE cat_id = (int)$cat_id";
+		$result = $db->sql_query($sql);
+		$row = $db->sql_fetchrow($result);
+		$db->sql_freeresult($result);
+
+		if (!$row)
+		{
+			break;
+		}
+
+		if ($row['cat_cron_enable'] && $row['cat_cron_next'] < time())
+		{
+			if(!class_exists('directory_cron'))
+			{
+				include($phpbb_root_path . 'includes/mods/directory/functions.' . $phpEx);
+				$directory_cron = new directory_cron($row);
+			}
+
+			$directory_cron->auto_check($row['cat_cron_freq']);
+		}
+
+	break;]]></action>
+			</edit>
+		</open>
+		<open src="includes/constants.php">
+			<edit>
+				<find>// Additional tables</find>
+				<action type="after-add"><![CDATA[define('DIR_CAT_TABLE',				$table_prefix.'directory_cats');
+define('DIR_COMMENT_TABLE',			$table_prefix.'directory_comments');
+define('DIR_LINK_TABLE',			$table_prefix.'directory_links');
+define('DIR_VOTE_TABLE',			$table_prefix.'directory_votes');
+define('DIR_NOTIFICATION_TABLE',	$table_prefix.'directory_notifications');]]></action>
+			</edit>
+		</open>
+		<open src="includes/acp/acp_styles.php">
+			<edit>
+				<find><![CDATA['icon_back_top', 'icon_contact_aim', 'icon_contact_email', 'icon_contact_icq', 'icon_contact_jabber', 'icon_contact_msnm', 'icon_contact_pm', 'icon_contact_yahoo', 'icon_contact_www', 'icon_post_delete', 'icon_post_edit', 'icon_post_info', 'icon_post_quote', 'icon_post_report', 'icon_user_online', 'icon_user_offline', 'icon_user_profile', 'icon_user_search', 'icon_user_warn', 'button_pm_forward', 'button_pm_new', 'button_pm_reply', 'button_topic_locked', 'button_topic_new', 'button_topic_reply',]]></find>
+				<inline-edit>
+						<inline-find><![CDATA[ 'button_topic_reply',]]></inline-find>
+						<inline-action type="after-add"><![CDATA[ 'button_link_new', 'icon_link_new',]]></inline-action>
+				</inline-edit>
+			</edit>
+		</open>
+		<open src="includes/functions.php">
+			<edit>
+				<find><![CDATA[		'U_FAQ'					=> append_sid("{$phpbb_root_path}faq.$phpEx"),]]></find>
+				<action type="after-add"><![CDATA[		'U_DIRECTORY'			=> append_sid("{$phpbb_root_path}directory.$phpEx"),]]></action>
+			</edit>
+		</open>
+		<open src="language/en/common.php">
+			<edit>
+				<find><![CDATA[?>]]></find>
+				<action type="before-add"><![CDATA[$lang = array_merge($lang, array(
+	'DIRECTORY'			=> 'Directory',
+));]]></action>
+			</edit>
+		</open>
+		<open src="styles/prosilver/imageset/en/imageset.cfg">
+			<edit>
+				<find><![CDATA[img_button_topic_reply = button_topic_reply.gif*25*96]]></find>
+				<action type="after-add"><![CDATA[img_button_link_new = button_link_new.gif*25*96
+img_icon_link_new = icon_link_new.gif*11*25]]></action>
+			</edit>
+		</open>
+		<open src="styles/prosilver/template/overall_header.html">
+			<edit>
+				<find><![CDATA[				<li class="icon-faq"><a href="{U_FAQ}" title="{L_FAQ_EXPLAIN}">{L_FAQ}</a></li>]]></find>
+				<action type="after-add"><![CDATA[				<li class="icon-directory"><a href="{U_DIRECTORY}" title="{L_DIRECTORY}">{L_DIRECTORY}</a></li>]]></action>
+			</edit>
+		</open>
+		<open src="styles/prosilver/theme/stylesheet.css">
+			<edit>
+				<find><![CDATA[@import url("colours.css");]]></find>
+				<action type="after-add"><![CDATA[@import url("directory.css");]]></action>
+			</edit>
+		</open>
+		<php-installer>install/index.php</php-installer>
+	</action-group>
+</mod>

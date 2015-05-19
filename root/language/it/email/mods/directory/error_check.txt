@@ -1,0 +1,10 @@
+Subject: Problema con la vostra presentazione del sito nella directory "{SITENAME}"
+
+Salve {USERNAME},
+
+I backlinks della directory di "{SITENAME}" sono stati appena controllati e il link di ritorno obbligatorio non è stato trovato sulla pagina che hai indicato durante la presentazione del sito web. Avete tempo fino al prossimo controllo, impostare il {NEXT_CRON} per risolvere questo problema.
+In caso contrario, il vostro sito sarà eliminato dalla directory.
+Ecco una breve descrizione dal sito web:
+Nome : {LINK_NAME}
+Url : {LINK_URL}
+Descrizione : {LINK_DESCRIPTION}

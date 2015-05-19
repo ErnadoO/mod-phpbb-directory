@@ -1,0 +1,78 @@
+<!-- INCLUDE overall_header.html -->
+<form action="{S_POST_ACTION}" method="post">
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+      <h2>{L_DIR_MAKE_SEARCH}</h2>
+		<fieldset>
+			<dl>
+      			<dt><label for="keyword" >{L_DIR_KEYWORD}:</label><br /><span>{L_DIR_KEYWORD_EXP}</span></dt>
+	  			<dd><input type="text" tabindex="1" name="keyword" id="keyword" size="35" value="{S_KEYWORD}" class="inputbox autowidth" /></dd>
+			</dl>
+			<dl>
+				<dt><label for="search_method" >{L_DIR_SEARCH_METHOD}:</label></dt>
+				<dd>
+					<label for="AND"><input type="radio" name="search_method" id="all" value="all" {AND_SELECT} />{L_DIR_SEARCH_AND}</label>
+					<label for="OR"><input type="radio" name="search_method" id="any" value="any" {OR_SELECT} />{L_DIR_SEARCH_OR}</label>
+				</dd>
+			</dl>
+			<dl>
+				<dt><label for="sf1">{L_DIR_SEARCH_WITHIN}:</label></dt>
+				<dd><label for="sf1"><input type="radio" name="sf" id="sf1" value="all" {ALL_SELECT} /> {L_DIR_SEARCH_TITLE_DESC}</label></dd>
+				<dd><label for="sf2"><input type="radio" name="sf" id="sf2" value="desconly" {DESC_SELECT} /> {L_DIR_SEARCH_DESC_ONLY}</label></dd>
+				<dd><label for="sf3"><input type="radio" name="sf" id="sf3" value="titleonly" {TITLE_SELECT} /> {L_DIR_SEARCH_TITLE_ONLY}</label></dd>
+			</dl>
+			<dl>
+				<dt><label for="cat">{L_DIR_SEARCH_CATLIST}:</label></dt>
+				<dd><select name="cat" id="cat">{S_CATLIST}</select></dd>
+			</dl>
+		</fieldset>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+	<fieldset class="submit-buttons"><input type="submit" name="submit" value="{L_SUBMIT}" class="button1" /></fieldset>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+</form>
+
+<br />
+<!-- IF S_HAVE_SEARCH -->
+<!-- IF S_HAVE_RESULT -->
+<!-- BEGIN result -->
+<div class="post bg <!-- IF result.S_ROW_COUNT is odd -->bg1<!-- ELSE -->bg2<!-- ENDIF -->">
+<div class="inner"><span class="corners-top"><span></span></span>
+<div class="postbody">
+
+    <h3><a href="{result.U_SITE}" {result.ON_CLICK} class="gen">{result.S_SITE}</a></h3>
+
+	<div class="content">{result.S_DESCRIPTION}</div>
+	<!-- BEGIN banner --><div id="sig{result.LINK_ID}" class="signature">{result.IMG_BANNER}</div><!-- END banner -->
+	</div>
+		<dl class="postprofile">
+			<dt>{result.THUMB}</dt>
+			<dt>
+				<strong>{L_DIR_USER_PROP}</strong> {result.S_USER}
+			</dt>
+					<!-- BEGIN switch_dir_flag -->
+      			<dd>{result.IMG_FLAG}</dd>
+      				<!-- END switch_dir_flag -->
+				<!-- IF result.S_TIME --><dd><strong>&raquo;</strong> {result.S_TIME}</dd><!-- ENDIF -->
+				<dd><strong>{L_DIR_CAT}:</strong> {result.S_CAT}</dd>
+				<dd><strong>{result.L_DIR_SEARCH_NB_CLIC}</strong>: {result.S_COUNT}</dd>
+				<dd><strong>{result.L_DIR_SEARCH_NB_COMM}</strong>: {result.S_COMMENT}</dd>
+		</dl>
+</div>
+<div class="back2top"><a href="#wrap" class="top" title="{L_BACK_TO_TOP}">{L_BACK_TO_TOP}</a></div>
+<span class="corners-bottom"><span></span></span></div>
+<!-- END result -->
+	<!-- ELSE -->
+	<div class="panel">
+		<div class="inner"><span class="corners-top"><span></span></span>
+		<strong>{L_DIR_SEARCH_NO_RESULT}</strong>
+		<span class="corners-bottom"><span></span></span></div>
+	</div>
+	<!-- ENDIF -->
+<!-- ENDIF -->
+  <span class="corners-bottom"><span></span></span>
+<!-- INCLUDE mods/directory/footer.html -->

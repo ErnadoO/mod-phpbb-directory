@@ -1,0 +1,7 @@
+Subject: Sito web in attesa di essere convalidato
+
+Salve {USERNAME},
+
+Un nuovo sito è stato presentato per la directory "{SITENAME}" ed è in attesa di essere convalidato prima di poter apparire nella directory. È possibile verificare il sito web anche tramite il pannello di amministrazione.
+
+{EMAIL_SIG}

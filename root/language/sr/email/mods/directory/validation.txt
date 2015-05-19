@@ -1,0 +1,7 @@
+Subject: Vebsajt na cekanju potvrde
+
+Postovani {USERNAME},
+
+Novi veb sajt je unesen u direktorijum "{SITENAME}" ocekuje se vasa potvrda istog pre nego sto se pojavi u direktorijumi. Mozete potvrditi vebsajt u admin panel-u.
+
+{EMAIL_SIG}

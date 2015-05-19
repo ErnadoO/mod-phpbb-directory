@@ -1,0 +1,10 @@
+Subject: Problem prilikom unosenja vaseg vebsajta "{SITENAME}"
+
+Postovai {USERNAME},
+
+Povratni linkovi direktorijuma "{SITENAME}" su provereni i obavezni povratni link nije nadjen na stranici koju ste uneli prilikom unosenja vebsajta. Imate vremena do sledece provere, koja je predvidjena {NEXT_CRON} da resite ovaj problem.
+U suprotnom, vas vebsajt ce biti izbrisan iz direktorijuma.
+Ovde mozete naci kratak opis sajta :
+Ime : {LINK_NAME}
+Url : {LINK_URL}
+Opis : {LINK_DESCRIPTION}

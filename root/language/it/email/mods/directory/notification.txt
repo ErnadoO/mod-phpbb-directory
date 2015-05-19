@@ -1,0 +1,15 @@
+Subject: Un nuovo sito nella directory "{SITENAME}"
+
+Salve {USERNAME},
+
+Un nuovo sito è stato presentato per la directory "{SITENAME}", nella categoria "{CAT_NAME}".
+Ecco una breve descrizione del sito:
+Nome : {LINK_NAME}
+Url : {LINK_URL}
+Descrizione : {LINK_DESCRIPTION}
+
+-----
+
+Hai ricevuto questa email perché hai chiesto di essere avvisato se un nuovo sito sarebbe stato presentato in questa categoria. Se non vuoi più ricevere e-mail si prega di Annullare dalla notifica nella categoria della directory.
+
+{EMAIL_SIG}

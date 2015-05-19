@@ -1,0 +1,101 @@
+<!-- INCLUDE install_header.html -->
+
+<form id="install_install" method="post" action="{U_ACTION}" onsubmit="submit.disabled = 'disabled';">
+
+<!-- IF TITLE --><h1>{TITLE}</h1><!-- ENDIF -->
+<!-- IF BODY --><p>{BODY}</p><!-- ENDIF -->
+
+<!-- IF .checks -->
+	<fieldset>
+
+	<!-- BEGIN checks -->
+		<!-- IF checks.S_LEGEND -->
+			<!-- IF not checks.S_FIRST_ROW -->
+			</fieldset>
+
+			<fieldset>
+			<!-- ENDIF -->
+				<legend>{checks.LEGEND}</legend>
+				<!-- IF checks.LEGEND_EXPLAIN --><p>{checks.LEGEND_EXPLAIN}</p><!-- ENDIF -->
+		<!-- ELSE -->
+
+			<dl>
+				<dt>{checks.TITLE}:<!-- IF checks.S_EXPLAIN --><br /><span class="explain">{checks.TITLE_EXPLAIN}</span><!-- ENDIF --></dt>
+				<dd>{checks.RESULT}</dd>
+			</dl>
+		<!-- ENDIF -->
+	<!-- END checks -->
+
+	</fieldset>
+<!-- ENDIF -->
+
+<!-- IF .options -->
+	<fieldset>
+
+	<!-- BEGIN options -->
+		<!-- IF options.S_LEGEND -->
+			<!-- IF not options.S_FIRST_ROW -->
+				</fieldset>
+		
+				<fieldset>
+			<!-- ENDIF -->
+				<legend>{options.LEGEND}</legend>
+		<!-- ELSE -->
+
+			<dl>
+				<dt><label for="{options.KEY}">{options.TITLE}:</label><!-- IF options.S_EXPLAIN --><br /><span class="explain">{options.TITLE_EXPLAIN}</span><!-- ENDIF --></dt>
+				<dd>{options.CONTENT}</dd>
+			</dl>
+
+		<!-- ENDIF -->
+	<!-- END options -->
+
+	</fieldset>
+<!-- ENDIF -->
+
+<!-- IF S_RESULTS -->
+	<h1>{L_TITLE} - <font style="color: <!-- IF S_SUCCESS -->green<!-- ELSE -->red<!-- ENDIF -->;">{L_RESULTS}</font></h1>
+
+	<br />
+
+	<p>{L_DATABASE_TYPE} :: <strong>{SQL_LAYER}</strong></p>
+
+	<!-- IF not S_SUCCESS -->
+		<div class="errorbox">
+			<h3>{L_WARNING}</h3>
+			<p>{L_ERROR_NOTICE}</p>
+		</div>
+	<!-- ENDIF -->
+
+	<!-- IF S_PERMISSIONS -->
+		<div class="errorbox">
+			<h3>{L_WARNING}</h3>
+			<p>{L_PERMISSIONS_WARNING}</p>
+		</div>
+	<!-- ENDIF -->
+
+	<!-- IF .results -->
+	<fieldset>
+		<legend></legend>
+		<!-- BEGIN results -->
+				<p>{results.COMMAND}</p>
+				<div style="color: <!-- IF results.S_SUCCESS -->green<!-- ELSE -->red<!-- ENDIF -->;">{results.RESULT}</div>
+				<!-- IF not results.S_LAST_ROW --><hr /><!-- ENDIF -->
+		<!-- END results -->
+	</fieldset>
+	<!-- ENDIF -->
+
+
+<!-- ENDIF -->
+
+<!-- IF L_SUBMIT -->
+	<fieldset class="submit-buttons">
+		<legend>{L_SUBMIT}</legend>
+		{S_HIDDEN}
+		<!-- IF L_SUBMIT --><input class="button1" type="submit" id="submit" onclick="this.className = 'button1 disabled';" name="submit" value="{L_SUBMIT}" /><!-- ENDIF -->
+	</fieldset>
+<!-- ENDIF -->
+
+</form>
+
+<!-- INCLUDE install_footer.html -->

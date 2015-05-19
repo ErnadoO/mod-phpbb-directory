@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="modx.prosilver.en.xsl"?>
+<!--NOTICE: Please open this file in your web browser. If presented with a security warning, you may safely tell it to allow the blocked content.-->
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD.\nAlthough MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD.\nNo support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://www.phpbb.com/mods/xml/modx-1.2.6.xsd">
+	<header>
+		<meta name="generator" content="MODX file generated with PP MODX Creator by tumba25"/>
+		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
+		<title lang="en"><![CDATA[SEO URL phpbb directory]]></title>
+		<description lang="en"><![CDATA[Patch to URL rewrite the phpBB Directory mod]]></description>
+		<author-group>
+			<author>
+				<realname><![CDATA[Erwan NADER]]></realname>
+				<username><![CDATA[ErnadoO]]></username>
+				<homepage><![CDATA[http://www.phpbb-services.com]]></homepage>
+			</author>
+		</author-group>
+		<mod-version><![CDATA[2.0.0]]></mod-version>
+		<installation>
+			<level><![CDATA[easy]]></level>
+			<time><![CDATA[180]]></time>
+			<target-version><![CDATA[3.0.12]]></target-version>
+		</installation>
+		<history>
+			<entry>
+				<date>2009-11-03</date>
+				<rev-version>0.0.1</rev-version>
+				<changelog lang="en">
+					<change>First release</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2010-03-10</date>
+				<rev-version>1.0.0</rev-version>
+				<changelog lang="en">
+					<change>bugfix</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2013-01-05</date>
+				<rev-version>2.0.0</rev-version>
+				<changelog lang="en">
+					<change>Update for phpBB Directory v2.x.x</change>
+					<change>Bugfixe and optimization</change>
+				</changelog>
+			</entry>
+		</history>
+		<link-group>
+			<link type="contrib" href="./contrib/update_0_0_1_to_1_0_0.xml" lang="en"><![CDATA[SEO URL phpbb directory Update 0.0.1 to 1.0.0]]></link>
+			<link type="contrib" href="./contrib/update_1_0_0_to_2_0_0.xml" lang="en"><![CDATA[SEO URL phpbb directory Update 1.0.0 to 2.0.0]]></link>
+		</link-group>
+	</header>
+	<action-group>
+		<copy>
+			<file from="root/phpbb_seo/includes/htmods/ht_directory.php" to="phpbb_seo/includes/htmods/ht_directory.php" />
+		</copy>
+		<open src="includes/mods/directory/functions.php">
+			<edit>
+				<find><![CDATA[		global $directory_root_path, $auth, $phpEx;]]></find>
+				<inline-edit>
+					<inline-find><![CDATA[, $phpEx]]></inline-find>
+					<inline-action type="after-add"><![CDATA[,  $phpbb_seo]]></inline-action>
+				</inline-edit>
+			</edit>
+			<edit>
+				<find><![CDATA[			if ($row['parent_id'] == $root_data['cat_id'] || $row['parent_id'] == $branch_root_id)
+			{]]></find>
+				<action type="before-add"><![CDATA[			// www.phpBB-SEO.com SEO TOOLKIT BEGIN
+			$phpbb_seo->prepare_url('directory', $row['cat_name'], $row['cat_id']);
+			// www.phpBB-SEO.com SEO TOOLKIT END]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[function generate_dir_nav(&$dir_cat_data)
+{
+	global $template, $phpEx;]]></find>
+				<inline-edit>
+					<inline-find><![CDATA[, $phpEx]]></inline-find>
+					<inline-action type="after-add"><![CDATA[,  $phpbb_seo]]></inline-action>
+				</inline-edit>
+			</edit>
+			<edit>
+				<find><![CDATA[		foreach ($dir_cat_parents as $parent_cat_id => $parent_name)
+		{]]></find>
+				<action type="after-add"><![CDATA[			// www.phpBB-SEO.com SEO TOOLKIT BEGIN
+			$phpbb_seo->prepare_url('directory', $parent_name, $parent_cat_id);
+			// www.phpBB-SEO.com SEO TOOLKIT END]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[	$template->assign_block_vars('navlinks', array(
+		'FORUM_NAME'	=> $dir_cat_data['cat_name'],]]></find>
+				<action type="before-add"><![CDATA[	// www.phpBB-SEO.com SEO TOOLKIT BEGIN
+	$phpbb_seo->prepare_url('directory', $dir_cat_data['cat_name'], $dir_cat_data['cat_id']);
+	// www.phpBB-SEO.com SEO TOOLKIT END]]></action>
+			</edit>
+		</open>
+		<open src="phpbb_seo/includes/setup_phpbb_seo.php">
+			<edit>
+				<find><![CDATA[		// Let's make sure that settings are consistent
+		$this->check_config();]]></find>
+				<action type="before-add"><![CDATA[		// PhpBB directory Mod
+		$this->seo_ext['directory_index'] = '.html';
+		$this->seo_static['directory_index'] = 'directory';
+		$this->seo_url['directory'] = array();
+		$this->seo_ext['directory'] = $this->seo_opt['virtual_folder'] ? '/' : '.html';
+		$this->seo_delim['directory'] = '-lc';
+		$this->seo_static['directory'] = 'categorie';
+		$this->seo_path['directory_url'] = $this->seo_path['phpbb_urlR'];
+		$this->file_hbase['directory'] = $this->seo_path['phpbb_url'];
+		$this->rewrite_method[$phpbb_root_path]['directory'] = !empty($config['dir_activ_rewrite']) ? 'directory' : '';
+		$this->paginate_method['directory'] = $this->seo_ext['directory'] === '/' ? 'rewrite_pagination_page' : 'rewrite_pagination';
+		$this->sftpl['directory'] = ($this->modrtype >= 2 ? '%2$s' . $this->seo_delim['directory'] . '%3$s' : $this->seo_static['directory'] . '%3$s');
+		// PhpBB directory Mod]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[		// Let's make sure that settings are consistent
+		$this->check_config();
+	}
+	// Here start the add-on methods]]></find>
+				<action type="after-add"><![CDATA[	// --> PhpBB directory Mod
+	/**
+	 * directory
+	 * @access private
+	 */
+	function directory() {
+		$this->path = $this->seo_path['phpbb_urlR'];
+		if(isset($this->get_vars['u']) || @$this->get_vars['mode'] == 'add_site' || @$this->get_vars['mode'] == 'notification') {
+			return;
+		}
+		if (isset($this->get_vars['id']) && !empty($this->seo_url['directory'][$this->get_vars['id']])) {
+			$this->{$this->paginate_method['directory']}($this->seo_ext['directory']);
+			$this->url = $this->seo_url['directory'][$this->get_vars['id']] . $this->start;
+			unset($this->get_vars['mode'], $this->get_vars['id']);
+			return;
+		} else if(empty($this->get_vars)) {
+			$this->url = $this->seo_static['directory_index'] . $this->seo_ext['directory_index'];
+			return;
+		}
+		$this->path = $this->seo_path['phpbb_urlR'];
+		return;
+	}
+	// <-- PhpBB directory Mod]]></action>
+			</edit>
+		</open>
+		<diy-instructions lang="en"><![CDATA[________________
+NOTE : .htaccess
+________________
+once installed, go to phpBB SEO ACP and generate a new .htaccess]]></diy-instructions>
+	</action-group>
+</mod>

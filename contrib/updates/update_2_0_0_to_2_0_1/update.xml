@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml-stylesheet type="text/xsl" href="modx.prosilver.en.xsl"?>
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://www.phpbb.com/mods/xml/modx-1.2.6.xsd">
+	<header>
+		<license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
+
+		<title lang="en">phpBB Directory</title>
+		<title lang="fr">phpBB Annuaire</title>
+		<title lang="de">phpBB Annuaire</title>
+
+		<description lang="en"><![CDATA[Update v2.0.0 to v2.0.1]]></description>
+		<description lang="fr"><![CDATA[Mise à jour de la version 2.0.0 vers la 2.0.1]]></description>
+
+		<author-group>
+			<author>
+				<realname>Erwan NADER</realname>
+				<username>ErnadoO</username>
+				<homepage>http://www.phpbb-services.com</homepage>
+			</author>
+
+		</author-group>
+
+		<mod-version>2.0.1</mod-version>
+
+		<installation>
+			<level>easy</level>
+			<time>180</time>
+			<target-version>3.0.12</target-version>
+		</installation>
+
+		<history>
+		</history>
+
+		<link-group>
+			<link type="parent" href="../../../install.xml" lang="en">Main installation file</link>
+			<link type="parent" href="../../../install.xml" lang="fr">Fichier d'installation principal</link>
+		</link-group>
+	</header>
+
+	<action-group>
+		<copy>
+			<file from="root/includes/mods/directory/functions.php" to="includes/mods/directory/functions.php" />
+		</copy>
+		<diy-instructions lang="en">• Go to install/index.php, update tab</diy-instructions>
+		<diy-instructions lang="fr">• Rendez vous dans install/index.php, onglet "Mise à jour"</diy-instructions>
+	</action-group>
+</mod>

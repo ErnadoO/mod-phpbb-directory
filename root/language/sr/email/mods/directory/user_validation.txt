@@ -1,0 +1,5 @@
+Postovani {USERNAME},
+
+{TEXT}
+
+{EMAIL_SIG}

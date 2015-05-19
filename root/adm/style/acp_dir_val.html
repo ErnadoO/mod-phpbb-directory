@@ -1,0 +1,58 @@
+<!-- INCLUDE overall_header.html -->
+<a name="maincontent"></a>
+	<a href="{U_BACK}" style="float: {S_CONTENT_FLOW_END};">&laquo; {L_BACK}</a>
+
+	<h1>{L_DIR_VALIDATION}</h1>
+
+	<p>{L_DIR_VALIDATION_EXPLAIN}</p>
+
+
+<form id="links" method="post" action="{U_ACTION}">
+
+	<!-- IF PAGINATION -->
+	<div class="pagination">
+			<a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a> &bull; <span>{PAGINATION}</span>
+	</div>
+	<!-- ENDIF -->
+
+			<table cellspacing="1">
+			<col class="row1" /><col class="row1" /><col class="row2" />
+		<tbody>
+		<!-- IF .linkrow -->
+		<!-- BEGIN linkrow -->
+			<tr>
+				<td style="width: 5%; text-align: center;">{linkrow.FOLDER_IMAGE}</td>
+				<td>
+					<strong><a href="{linkrow.LINK_URL}">{linkrow.LINK_NAME}</a></strong>
+					<br /><small>{linkrow.L_DIR_USER_PROP}</small><br />
+					<!-- IF linkrow.LINK_DESC --><br /><span>{linkrow.LINK_DESC}</span><!-- ENDIF -->
+					<!-- IF linkrow.BANNER --><br />------------------------------<br />{linkrow.BANNER}<!-- ENDIF -->
+				</td>
+
+      <td style="text-align: center; white-space: nowrap;"><input type="checkbox" class="radio" name="link_id[]" value="{linkrow.LINK_ID}" /></td>
+			</tr>
+		<!-- END linkrow -->
+	<!-- ELSE -->
+	<tr>
+		<td colspan="3" style="text-align: center;">{L_DIR_NO_LINK}</td>
+	</tr>
+	<!-- ENDIF -->
+		</tbody>
+		</table>
+
+
+	<!-- IF PAGINATION -->
+	<div class="pagination">
+			<a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a> &bull; <span>{PAGINATION}</span>
+	</div>
+	<!-- ENDIF -->
+
+	<fieldset class="quick">
+		<select name="action">{S_LINKS_OPTIONS}</select>
+		<input class="button2" type="submit" name="submit" value="{L_SUBMIT}" />
+		<p class="small"><a href="#" onclick="marklist('links', 'link_id', true); return false;">{L_MARK_ALL}</a> &bull; <a href="#" onclick="marklist('links', 'link_id', false); return false;">{L_UNMARK_ALL}</a></p>
+		{S_FORM_TOKEN}
+	</fieldset>
+</form>
+
+<!-- INCLUDE overall_footer.html -->

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml-stylesheet type="text/xsl" href="modx.prosilver.en.xsl"?>
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://www.phpbb.com/mods/xml/modx-1.2.6.xsd">
+	<header>
+		<license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
+
+		<title lang="en">phpBB Directory</title>
+		<title lang="fr">phpBB Annuaire</title>
+		<title lang="de">phpBB Annuaire</title>
+
+		<description lang="en"><![CDATA[Update v1.0.0 to v2.0.0]]></description>
+		<description lang="fr"><![CDATA[Mise à jour de la version 1.0.0 vers la 2.0.0]]></description>
+
+		<author-notes lang="en">In this 2.0.0 version, all files, sql tables and fields table are now in english.
+								Therefore, keeping v1.0.0 datas can't be done throught a classical update (All SGBD doesn't support renaming of table).
+								As for a phpBB2 to phpBB3 conversion, you must install phpBB Directory 2.0.2 and launch the conversion script wich import datas from 1.0.0 version.</author-notes>
+		<author-notes lang="fr">Dans cette version 2.0.0, tous les fichiers, table sql et les champs de tables sont passés du Français à l'Anglais.
+								De ce fait, pour conserver les données de votre annuaire v1.0.0, cela ne peut pas se faire via une mise à jour "classique" (tous les SGBD ne supportent pas le renommage de table).
+								Tout comme pour la conversion phpBB2 vers phpBB3, il faut donc installer phpBB annauire 2.0.2 et lancer le script de conversion qui se chargera d'importer les données de votre version 1.0.0.</author-notes>
+		<author-group>
+			<author>
+				<realname>Erwan NADER</realname>
+				<username>ErnadoO</username>
+				<homepage>http://www.phpbb-services.com</homepage>
+			</author>
+
+		</author-group>
+
+		<mod-version>2.0.0</mod-version>
+
+		<installation>
+			<level>easy</level>
+			<time>180</time>
+			<target-version>3.0.12</target-version>
+		</installation>
+
+		<history>
+		</history>
+
+		<link-group>
+			<link type="language" href="./xml/fr.xml" lang="en">French</link>
+			<link type="language" href="./xml/de.xml" lang="en">Deutsch</link>
+			<link type="language" href="./xml/fr.xml" lang="fr">Français</link>
+			<link type="language" href="./xml/de.xml" lang="fr">Allemand</link>
+			<link type="language" href="./xml/fr.xml" lang="de">Französisch</link>
+			<link type="language" href="./xml/de.xml" lang="de">Deutsch</link>
+			<link type="parent" href="../../../install.xml" lang="en">Main installation file</link>
+			<link type="parent" href="../../../install.xml" lang="fr">Fichier d'installation principal</link>
+		</link-group>
+	</header>
+
+	<action-group>
+		<delete>
+			<file name="annuaire.php" />
+			<file name="annuaire_comment.php" />
+			<file name="annuaire_search.php" />
+			<file name="adm/style/acp_annu_cat.html" />
+			<file name="adm/style/acp_annu_main.html" />
+			<file name="adm/style/acp_annu_val.html" />
+			<file name="adm/style/install_annu.html" />
+			<file name="includes/acp/acp_annuaire.php" />
+			<file name="includes/acp/info/acp_annuaire.php" />
+			<file name="includes/mods/annuaire/*.*" />
+			<file name="language/en/email/mods/annuaire/*" />
+			<file name="language/en/mods/annuaire.php" />
+			<file name="language/en/mods/annuaire_flags.php" />
+			<file name="language/en/mods/annuaire_install.php" />
+			<file name="language/en/mods/info_acp_annuaire.php" />
+			<file name="language/en/mods/permissions_annuaire.php" />
+			<file name="styles/prosilver/template/mods/annuaire/*.*"/>
+			<file name="styles/prosilver/theme/annuaire.css" />
+			<file name="styles/prosilver/theme/images/icon_annuaire.gif" />
+			<file name="styles/prosilver/theme/images/icon_annuaire_new.gif" />
+		</delete>
+		<copy>
+			<file from="root/directory.php" to="directory.php" />
+			<file from="root/directory_comment.php" to="directory_comment.php" />
+			<file from="root/directory_search.php" to="directory_search.php" />
+			<file from="root/adm/style/acp_dir_cat.html" to="adm/style/acp_dir_cat.html" />
+			<file from="root/adm/style/acp_dir_main.html" to="adm/style/acp_dir_main.html" />
+			<file from="root/adm/style/acp_dir_val.html" to="adm/style/acp_dir_val.html" />
+			<file from="root/adm/style/install_dir.html" to="adm/style/install_dir.html" />
+			<file from="root/images/directory/nothumb.gif" to="images/directory/nothumb.gif" />
+			<file from="root/images/directory/flags/*.*" to="images/directory/flags/*.*" />
+			<file from="root/images/directory/icons/*.*" to="images/directory/icons/*.*" />
+			<file from="root/includes/acp/acp_directory.php" to="includes/acp/acp_directory.php" />
+			<file from="root/includes/acp/info/acp_directory.php" to="includes/acp/info/acp_directory.php" />
+			<file from="root/includes/mods/directory/functions.php" to="includes/mods/directory/functions.php" />
+			<file from="root/install/*.*" to="install/*.*" />
+			<file from="root/language/en/email/mods/directory/error_check.txt" to="language/en/email/mods/directory/error_check.txt" />
+			<file from="root/language/en/email/mods/directory/notification.txt" to="language/en/email/mods/directory/notification.txt" />
+			<file from="root/language/en/email/mods/directory/user_validation.txt" to="language/en/email/mods/directory/user_validation.txt" />
+			<file from="root/language/en/email/mods/directory/validation.txt" to="language/en/email/mods/directory/validation.txt" />
+			<file from="root/language/en/mods/directory.php" to="language/en/mods/directory.php" />
+			<file from="root/language/en/mods/directory_flags.php" to="language/en/mods/directory_flags.php" />
+			<file from="root/language/en/mods/directory_install.php" to="language/en/mods/directory_install.php" />
+			<file from="root/language/en/mods/info_acp_directory.php" to="language/en/mods/info_acp_directory.php" />
+			<file from="root/language/en/mods/permissions_directory.php" to="language/en/mods/permissions_directory.php" />
+			<file from="root/styles/prosilver/imageset/en/button_link_new.gif" to="styles/prosilver/imageset/en/button_link_new.gif" />
+			<file from="root/styles/prosilver/imageset/en/icon_link_new.gif" to="styles/prosilver/imageset/en/icon_link_new.gif" />
+			<file from="root/styles/prosilver/template/mods/directory/add_site.html" to="styles/prosilver/template/mods/directory/add_site.html" />
+			<file from="root/styles/prosilver/template/mods/directory/body.html" to="styles/prosilver/template/mods/directory/body.html" />
+			<file from="root/styles/prosilver/template/mods/directory/catlist.html" to="styles/prosilver/template/mods/directory/catlist.html" />
+			<file from="root/styles/prosilver/template/mods/directory/comment_body.html" to="styles/prosilver/template/mods/directory/comment_body.html" />
+			<file from="root/styles/prosilver/template/mods/directory/footer.html" to="styles/prosilver/template/mods/directory/footer.html" />
+			<file from="root/styles/prosilver/template/mods/directory/recents.html" to="styles/prosilver/template/mods/directory/recents.html" />
+			<file from="root/styles/prosilver/template/mods/directory/search_site.html" to="styles/prosilver/template/mods/directory/search_site.html" />
+			<file from="root/styles/prosilver/template/mods/directory/view_cat.html" to="styles/prosilver/template/mods/directory/view_cat.html" />
+			<file from="root/styles/prosilver/theme/directory.css" to="styles/prosilver/theme/directory.css" />
+			<file from="root/styles/prosilver/theme/images/icon_directory.gif" to="styles/prosilver/theme/images/icon_directory.gif" />
+			<file from="root/umil/*.*" to="umil/*.*" />
+		</copy>
+		<open src="cron.php">
+			<edit>
+				<find><![CDATA[	case 'prune_annu':
+
+		$cat_id = request_var('cat', 0);
+
+		$sql = 'SELECT annu_cat_id, annu_cat_cron_enable, annu_cat_cron_next, annu_cat_cron_freq, annu_cat_cron_nb_check
+			FROM ' . ANNU_CAT_TABLE . "
+			WHERE annu_cat_id = $cat_id";
+		$result = $db->sql_query($sql);
+		$row = $db->sql_fetchrow($result);
+		$db->sql_freeresult($result);
+
+		if (!$row)
+		{
+			break;
+		}
+
+		if ($row['annu_cat_cron_enable'] && $row['annu_cat_cron_next'] < time())
+		{
+			include_once($phpbb_root_path . 'includes/mods/annuaire/functions_annuaire.' . $phpEx);
+			$cron = new cron($row);
+
+			if ($use_shutdown_function)
+			{
+				register_shutdown_function(array($cron, 'auto_check'), $row['annu_cat_cron_freq']);
+			}
+			else
+			{
+				$cron->auto_check($row['annu_cat_cron_freq']);
+			}
+		}
+
+		break;]]></find>
+				<action type="replace-with"><![CDATA[	case 'prune_directory':
+
+		$cat_id = request_var('cat', 0);
+
+		$sql = 'SELECT cat_id, cat_cron_enable, cat_cron_next, cat_cron_freq, cat_cron_nb_check
+			FROM ' . DIR_CAT_TABLE . "
+			WHERE cat_id = (int)$cat_id";
+		$result = $db->sql_query($sql);
+		$row = $db->sql_fetchrow($result);
+		$db->sql_freeresult($result);
+
+		if (!$row)
+		{
+			break;
+		}
+
+		if ($row['cat_cron_enable'] && $row['cat_cron_next'] < time())
+		{
+			if(!class_exists('cron'))
+			{
+				include($phpbb_root_path . 'includes/mods/directory/functions.' . $phpEx);
+				$cron = new cron($row);
+			}
+
+			$cron->auto_check($row['cat_cron_freq']);
+		}
+
+		break;]]></action>
+			</edit>
+		</open>
+		<open src="includes/constants.php">
+			<edit>
+				<find><![CDATA[define('ANNU_CAT_TABLE',			$table_prefix.'annuaire_cats');
+define('ANNU_COMMENT_TABLE',		$table_prefix.'annuaire_comments');
+define('ANNU_LIEN_TABLE',			$table_prefix.'annuaire_liens');
+define('ANNU_VOTE_TABLE',			$table_prefix.'annuaire_votes');
+define('ANNU_NOTIFICATION_TABLE',	$table_prefix.'annuaire_notifications');]]></find>
+				<action type="replace-with"><![CDATA[define('DIR_CAT_TABLE',				$table_prefix.'directory_cats');
+define('DIR_COMMENT_TABLE',			$table_prefix.'directory_comments');
+define('DIR_LINK_TABLE',			$table_prefix.'directory_links');
+define('DIR_VOTE_TABLE',			$table_prefix.'directory_votes');
+define('DIR_NOTIFICATION_TABLE',	$table_prefix.'directory_notifications');]]></action>
+			</edit>
+		</open>
+		<open src="includes/functions.php">
+			<edit>
+				<find><![CDATA[		'U_ANNUAIRE'			=> append_sid("{$phpbb_root_path}annuaire.$phpEx"),]]></find>
+				<action type="replace-with"><![CDATA[		'U_DIRECTORY'			=> append_sid("{$phpbb_root_path}directory.$phpEx"),]]></action>
+			</edit>
+		</open>
+		<open src="language/en/common.php">
+			<edit>
+				<find><![CDATA[$lang = array_merge($lang, array(
+	'ANNUAIRE'			=> 'Directory',
+));]]></find>
+				<action type="replace-with"><![CDATA[$lang = array_merge($lang, array(
+	'DIRECTORY'			=> 'Directory',
+));]]></action>
+			</edit>
+		</open>
+		<open src="styles/prosilver/template/overall_header.html">
+			<edit>
+				<find><![CDATA[				<li class="icon-annuaire"><a href="{U_ANNUAIRE}" title="{L_ANNUAIRE}">{L_ANNUAIRE}</a></li>]]></find>
+				<action type="replace-with"><![CDATA[				<li class="icon-directory"><a href="{U_DIRECTORY}" title="{L_DIRECTORY}">{L_DIRECTORY}</a></li>]]></action>
+			</edit>
+		</open>
+		<open src="styles/prosilver/theme/stylesheet.css">
+			<edit>
+				<find><![CDATA[@import url("annuaire.css");]]></find>
+				<action type="after-add"><![CDATA[@import url("directory.css");]]></action>
+			</edit>
+		</open>
+		<open src=".htaccess">
+			<edit>
+				<comment lang="fr">N'oubliez pas de rajouter le nom du dossier d'installation de votre forum si celui ci n'est pas installé à la racine.
+				(Ex: /phpBB/annuaire.php /phpBB/directory.php)</comment>
+				<comment lang="en">Don't forget to add you installation path if your board is not installed in your root webspace.
+				(Ex: /phpBB/annuaire.php /phpBB/directory.php)</comment>
+				<find><![CDATA[<Files "common.php">
+Order Allow,Deny
+Deny from All
+</Files>]]></find>
+				<action type="after-add"><![CDATA[Redirect permanent /annuaire.php /directory.php
+Redirect permanent /annuaire_search.php /directory_search.php]]></action>					
+			</edit>
+		</open>
+		<diy-instructions lang="en">• Backup your database
+• Go to install/index.php, for install this 2.0.x version
+• Then you complete installation go to install/index.php, conversion tab
+• After successful conversion, you can delete old tables from your database:
+• *_annuaire_cats, *_annuaire_comments, *_annuaire_liens, *_annuaire_notifications, *_annuaire_votes</diy-instructions>
+		<diy-instructions lang="fr">• Sauvegardez votre base de données
+• Rendez vous dans install/index afin d'installer la version 2.0.x
+• Une fois l'installation réussie, rendez vous dans install/index.php, onglet "conversion"
+• après avoir importer les données de l'ancienne version avec succès, vous pouvez supprimez les anciennes tables du mod de votre base de données:
+• *_annuaire_cats, *_annuaire_comments, *_annuaire_liens, *_annuaire_notifications, *_annuaire_votes</diy-instructions>
+	</action-group>
+</mod>

@@ -1,0 +1,5 @@
+Salve {USERNAME},
+
+{TEXT}
+
+{EMAIL_SIG}

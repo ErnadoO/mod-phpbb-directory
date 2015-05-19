@@ -10,7 +10,8 @@
     <fileset id="php-files" dir="${project.basedir}">
         <include name="**/*.php"/>
 		<exclude name="contrib/**"/>
-		<exclude name="**/umil/**"/>
+		<exclude name="root/umil/**"/>
+		<exclude name="root/install/**"/>
     </fileset>
 
     <!-- ============================================  -->
@@ -82,7 +83,7 @@
     <!-- Target: PHPMD (Project Mess Detector)         -->
     <!-- ============================================  -->
     <target name="phpmd" description="Generate pmd.xml using PHPMD">
-        <exec command="phpmd ${source} xml codesize,unusedcode --reportfile ${builddir}/phpmd.xml --exclude contrib,root/umil" escape="false" />
+        <exec command="phpmd ${source} xml codesize,unusedcode --reportfile ${builddir}/phpmd.xml --exclude contrib,root/umil,root/install" escape="false" />
     </target>
 
     <!-- ============================================  -->
@@ -102,7 +103,7 @@
         <exec command="../../phpbb/phpBB/vendor/bin/phpcs --standard=../../code_sniffer/ruleset-php-extensions.xml
                              --report=checkstyle
                              --report-file=${builddir}/logs/checkstyle.xml
-                             --ignore=contrib,root/umil
+                             --ignore=contrib,root/umil,root/install
                              --extensions=php
                              ${source}"
               escape="false" />
@@ -131,7 +132,7 @@
     <!-- ============================================  -->
     <target name="phpcb" description="Aggregate tool output with PHP_CodeBrowser">
         <exec command="phpcb --log    ${builddir}/logs
-              --ignore contrib,root/umil
+              --ignore contrib,root/umil,root/install
               --source ${source}
               --output ${builddir}/code-browser" />
     </target>

@@ -135,5 +135,4 @@
               --source ${source}
               --output ${builddir}/code-browser" />
     </target>
-
 </project>
